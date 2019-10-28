@@ -66,9 +66,11 @@ public class User {
     	int monthOfBirth = calendar.get(Calendar.MONTH);
 		int dayOfBirth = calendar.get(Calendar.DAY_OF_MONTH);
 		
-		if (currentMonth > monthOfBirth) || (currentMonth == monthOfBirth )
+		if (currentMonth < monthOfBirth) {
+			return currentYear - yearOfBirth - 1;
+		}
 		
-    	if (yearOfBirth == 1999) {
+		if (currentMonth == monthOfBirth && currentDay <= dayOfBirth) {
 			return currentYear - yearOfBirth - 1;
 		}
 		
