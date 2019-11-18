@@ -1,6 +1,9 @@
 Testsuite: ua.nure.kn.momont.usermanagement.UserTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0,005 sec
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0,008 sec
 
-Testcase: testGetAgeInThePast took 0,001 sec
-Testcase: testGetAgeInTheFuture took 0 sec
-Testcase: testGetFullName took 0 sec
+Testcase: testGetAgeInTheFuture took 0,002 sec
+Testcase: testGetFullName took 0,001 sec
+Testcase: testGetAgeToday took 0 sec
+Testcase: testGetAgeNextYear took 0 sec
+Testcase: testGetAgeNextMonth took 0 sec
+Testcase: testGetAgeNextDay took 0 sec
