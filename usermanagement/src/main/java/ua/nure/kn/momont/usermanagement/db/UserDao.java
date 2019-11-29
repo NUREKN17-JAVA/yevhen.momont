@@ -13,7 +13,9 @@ public interface UserDao{
 
     T find(Long id) throws DataBaseException;
 
-    Collection<T> findAll() throws DataBaseException;*/
+    Collection<T> findAll() throws DataBaseException;
+    
+    void setConnectionFactory(ConnectionFactory connectionFactory);*/
 	User create(User user) throws DataBaseException;
 	
 	void update(User user) throws DataBaseException;

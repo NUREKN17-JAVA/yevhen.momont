@@ -15,7 +15,6 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
 
 	private HsqldbUserDao dao;
 	private ConnectionFactory connectionFactory;
-	//private User user;
 
 	
 	private static final String LASTNAME = "Momont";

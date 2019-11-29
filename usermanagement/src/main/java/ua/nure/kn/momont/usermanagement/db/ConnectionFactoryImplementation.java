@@ -3,6 +3,7 @@ package ua.nure.kn.momont.usermanagement.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class ConnectionFactoryImplementation implements ConnectionFactory {
 
@@ -16,6 +17,13 @@ public class ConnectionFactoryImplementation implements ConnectionFactory {
 		this.url = url;
 		this.user = user;
 		this.password = password;
+	}
+
+	public ConnectionFactoryImplementation(Properties properties) {
+		user = properties.getProperty("connection.user");
+		password = properties.getProperty("connection.password");
+		url = properties.getProperty("connection.url");
+		driver = properties.getProperty("connection.driver");
 	}
 
 	@Override
