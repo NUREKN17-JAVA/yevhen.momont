@@ -12,12 +12,54 @@ public abstract class DaoFactory {
 	protected static Properties properties;
 	
 	private static DaoFactory instance;
+//	
+//	static {
+//		properties = new Properties();
+//		try {
+//			properties.load(DaoFactory.class.getClass().
+//					getClassLoader().getResourceAsStream("settings.properties"));
+//		} catch (IOException e) {
+//			throw new RuntimeException(e);
+//		}
+//	}
+//	
+//	public static synchronized DaoFactory getInstance() {
+//		if (instance == null) {
+//			Class factoryClass;
+//			try {
+//				factoryClass = Class.forName(properties.getProperty(DAO_FACTORY));
+//				instance = (DaoFactory) factoryClass.newInstance();
+//			} catch (Exception e) {
+//				throw new RuntimeException(e);
+//			}
+//		}
+//		return instance;
+//	}
+//	
+//	public static void init(Properties prop) {
+//		properties = prop;
+//		instance = null;
+//	}
+//	
+	protected DaoFactory() {
+		properties = new Properties();
+		try {
+			properties.load(getClass().getClassLoader().getResourceAsStream("settings.properties"));
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+//	
+//	protected ConnectionFactory getConnectionFactory() {
+//		return new ConnectionFactoryImplementation(properties);
+//	}
+//	
+//	public abstract UserDao getUserDao();
 	
 	static {
 		properties = new Properties();
 		try {
-			properties.load(DaoFactory.class.getClass().
-					getClassLoader().getResourceAsStream("settings.properties"));
+			properties.load(DaoFactory.class.getClassLoader().getResourceAsStream("settings.properties"));
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -36,18 +78,10 @@ public abstract class DaoFactory {
 		return instance;
 	}
 	
+	
 	public static void init(Properties prop) {
 		properties = prop;
 		instance = null;
-	}
-	
-	protected DaoFactory() {
-		properties = new Properties();
-		try {
-			properties.load(getClass().getClassLoader().getResourceAsStream("settings.properties"));
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
 	}
 	
 	protected ConnectionFactory getConnectionFactory() {
