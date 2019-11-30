@@ -50,4 +50,21 @@ public class MainFrame extends JFrame {
 
 	}
 
+	public void showAddPanel() {
+		showPanel(getAddPanel());
+		
+	}
+
+	private void showPanel(AddPanel panel) {
+		getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setVisible(true);
+		panel.repaint();
+		
+	}
+
+	private AddPanel getAddPanel() {
+		
+		return null;
+	}
+
 }
