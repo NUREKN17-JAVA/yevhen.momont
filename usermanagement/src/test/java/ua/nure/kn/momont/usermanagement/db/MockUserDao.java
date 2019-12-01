@@ -24,24 +24,20 @@ public class MockUserDao implements UserDao {
 		users.put(currentId, user);
 	}
 
-	@Override
 	public void delete(User user) throws DataBaseException {
 		Long currentId = user.getId();
 		users.remove(currentId);
 
 	}
 
-	@Override
 	public User find(Long id) throws DataBaseException {
 		return (User) users.get(id);
 	}
 
-	@Override
 	public Collection findAll() throws DataBaseException {
 		return users.values();
 	}
 
-	@Override
 	public void setConnectionFactory(ConnectionFactory connectionFactory) {
 		// TODO Auto-generated method stub
 

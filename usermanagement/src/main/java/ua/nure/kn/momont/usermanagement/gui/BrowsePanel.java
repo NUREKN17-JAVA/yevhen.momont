@@ -7,10 +7,12 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import ua.nure.kn.momont.usermanagement.db.DataBaseException;
 import ua.nure.kn.momont.usermanagement.util.Messages;
 
 public class BrowsePanel extends JPanel implements ActionListener {
@@ -62,10 +64,20 @@ public class BrowsePanel extends JPanel implements ActionListener {
 		if (userTable == null) {
 			userTable = new JTable();
 			userTable.setName("userTable"); //$NON-NLS-1$
-			UserTableModel model = new UserTableModel(new ArrayList());
-			userTable.setModel(model);
 		}
+//		initTable();
 		return userTable;
+	}
+
+	public void initTable() {
+		UserTableModel model;
+		try {
+			model = new UserTableModel(parent.getDao().findAll());
+		} catch (DataBaseException e) {
+			model = new UserTableModel(new ArrayList());
+			JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+		}
+		getUserTable().setModel(model);
 	}
 
 	private JButton getDetailsButton() {
@@ -119,6 +131,15 @@ public class BrowsePanel extends JPanel implements ActionListener {
 			this.setVisible(false);
 			parent.showAddPanel();
 		}
+		if ("edit".equalsIgnoreCase(actionCommand)) { //$NON-NLS-1$
+			this.setVisible(false);
+			parent.showAddPanel();
+		}
+		if ("delete".equalsIgnoreCase(actionCommand)) { //$NON-NLS-1$
+			this.setVisible(false);
+			parent.showAddPanel();
+		}
+		
 		
 	}
 

@@ -9,6 +9,21 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private Date dateOfBirth;
+	
+	public User(String firstName, String lastName, Date dateOfBirth) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+	}
+	public User(Long id, String firstName, String lastName, Date dateOfBirth) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+	}
+	public User() {
+		
+	}
 	public Long getId() {
 		return id;
 	}
@@ -33,21 +48,33 @@ public class User {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	
-	@Override
+
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id) &&
-                Objects.equals(firstName, user.firstName) &&
-                Objects.equals(lastName, user.lastName) &&
-                Objects.equals(dateOfBirth, user.dateOfBirth);
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        User user = (User) o;
+//        return Objects.equals(id, user.id) &&
+//                Objects.equals(firstName, user.firstName) &&
+//                Objects.equals(lastName, user.lastName) &&
+//                Objects.equals(dateOfBirth, user.dateOfBirth);
+    	if (o == null) {
+    		return false;
+    	}
+    	if (this == o) {
+    		return true;
+    	}
+    	if (this.getId() == null && ((User) o).getId() == null) {
+    		return true;
+    	}
+    	return this.getId().equals(((User) o).getId());
     }
 	
-    @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName, dateOfBirth);
+//        return Objects.hash(id, firstName, lastName, dateOfBirth);
+    	if (this.getId() == null) {
+    		return 0;
+    	}
+    	return this.getId().hashCode();
     }	
 	
 	public String getFullName() {
@@ -76,4 +103,6 @@ public class User {
 		
 		return currentYear - yearOfBirth;
     }
+	
+	
 }
