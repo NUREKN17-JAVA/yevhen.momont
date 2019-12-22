@@ -2,7 +2,6 @@ package ua.nure.kn.momont.usermanagement;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Objects;
 
 public class User {
 	private Long id;

@@ -1,6 +1,5 @@
 package ua.nure.kn.momont.usermanagement.db;
 
-import ua.nure.kn.momont.usermanagement.User;
 
 public class DaoFactoryImplementation extends DaoFactory {
 

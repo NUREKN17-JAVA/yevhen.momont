@@ -6,16 +6,13 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
-import java.text.ParseException;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import ua.nure.kn.momont.usermanagement.User;
-import ua.nure.kn.momont.usermanagement.db.DataBaseException;
 import ua.nure.kn.momont.usermanagement.util.Messages;
 
 public class DetailsPanel extends JPanel implements ActionListener {
@@ -28,8 +25,6 @@ public class DetailsPanel extends JPanel implements ActionListener {
 	
 	private JPanel buttonPanel;
 	private JPanel fieldPanel;
-
-	private JButton okButton;
 	
 	private JButton cancelButton;
 

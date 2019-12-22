@@ -1,8 +1,6 @@
 package ua.nure.kn.momont.usermanagement.gui;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Container;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

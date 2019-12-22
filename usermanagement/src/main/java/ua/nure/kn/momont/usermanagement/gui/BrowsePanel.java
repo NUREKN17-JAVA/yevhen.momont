@@ -1,7 +1,6 @@
 package ua.nure.kn.momont.usermanagement.gui;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;

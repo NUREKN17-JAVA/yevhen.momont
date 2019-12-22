@@ -1,6 +1,5 @@
 package ua.nure.kn.momont.usermanagement.db;
 
-import java.sql.SQLException;
 
 public class DataBaseException extends Exception {
 

@@ -2,14 +2,12 @@ package ua.nure.kn.momont.usermanagement.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.ParseException;
 
-import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -149,7 +147,7 @@ public class AddPanel extends JPanel implements ActionListener {
 				JOptionPane.showMessageDialog(this, e1.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 			}
 		}
-		//clearFields();
+		clearFields();
 		this.setVisible(false);
 		parent.showBrowsePanel();
 		
