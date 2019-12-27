@@ -37,6 +37,10 @@ public class MockUserDao implements UserDao {
 	public Collection findAll() throws DataBaseException {
 		return users.values();
 	}
+	
+	public Collection find(String firstName, String lastName) throws DataBaseException {
+		throw new UnsupportedOperationException();
+	}
 
 	public void setConnectionFactory(ConnectionFactory connectionFactory) {
 		// TODO Auto-generated method stub

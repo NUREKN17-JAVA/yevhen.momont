@@ -19,6 +19,7 @@ class HsqldbUserDao implements UserDao{
 	private static final String UPDATE_QUERY = "update users set firstname = ?, lastname = ?, dateofbirth = ? where id = ?";
 	private static final String SELECT_ALL_QUERY = "select id, firstname, lastname, dateofbirth from users";
 	private static final String INSERT_QUERY = "insert into users (firstname, lastname, dateofbirth) values (?,?,?)";
+	private static final String SELECT_BY_NAMES_QUERY = "SELECT id, firstname, lastname, dateofbirth FROM users WHERE firstname=? AND lastname=?";
 	private ConnectionFactory connectionFactory;
 	
 	@Override
@@ -143,6 +144,37 @@ class HsqldbUserDao implements UserDao{
 			throw new DataBaseException(e);
 		} catch (DataBaseException e) {
 			throw e;
+		}
+		return result;
+	}
+	
+	public Collection find(String firstName, String lastName) throws DataBaseException {
+		Collection<User> result = new LinkedList<User>();
+
+		try {
+			Connection connection = connectionFactory.createConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_NAMES_QUERY);
+			preparedStatement.setString(1, firstName);
+			preparedStatement.setString(2, lastName);
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				User user = new User();
+				user.setId(resultSet.getLong(1));
+				user.setFirstName(resultSet.getString(2));
+				user.setLastName(resultSet.getString(3));
+				user.setDateOfBirth(resultSet.getDate(4));
+
+				result.add(user);
+			}
+
+			resultSet.close();
+			preparedStatement.close();
+			connection.close();
+		} catch (DataBaseException e) {
+			throw e;
+		} catch (SQLException e) {
+			throw new DataBaseException(e);
 		}
 		return result;
 	}
